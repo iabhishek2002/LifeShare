@@ -14,11 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-    res.status(200).json({
-        message: "Welcome to Blood-Bank-App"
-    })
-})
+//routes
+app.use("/api/v1/test", require("./routes/testRoutes"));
 
 const port = process.env.PORT || 8080;
 
