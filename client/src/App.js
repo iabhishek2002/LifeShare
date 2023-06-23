@@ -1,8 +1,17 @@
+import { Route, Routes } from 'react-router-dom'
+import Homepage from './pages/Homepage';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
+
 function App() {
   return (
-    <div>
-      <h1>Welcome to LifeShare app!</h1>
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+    </>
   );
 }
 
