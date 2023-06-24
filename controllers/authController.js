@@ -44,7 +44,7 @@ const loginController = async (req, res) => {
                 message: "Invalid Credentials",
             });
         }
-        //check role
+        // check role
         if (user.role !== req.body.role) {
             return res.status(500).send({
                 success: false,
