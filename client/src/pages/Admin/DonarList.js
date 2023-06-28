@@ -22,6 +22,19 @@ const DonarList = () => {
         getDonars();
     }, []);
 
+    //DELETE FUNCTION
+    const handelDelete = async (id) => {
+        try {
+            let answer = window.prompt("Are You Sure Want To Delete This Donar?", "Sure");
+            if (!answer) return;
+            const { data } = await API.delete(`/admin/delete-donar/${id}`);
+            alert(data?.message);
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <Layout>
             <table className="table ">
@@ -31,6 +44,7 @@ const DonarList = () => {
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +54,14 @@ const DonarList = () => {
                             <td>{record.email}</td>
                             <td>{record.phone}</td>
                             <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
+                            <td>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={() => handelDelete(record._id)}
+                                >
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
