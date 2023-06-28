@@ -22,8 +22,8 @@ router.get("/org-list", authMiddleware, adminMiddleware, getOrgListController);
 
 // ==========================
 
-// DELETE DONAR || GET
-router.delete("/delete-donar/:id", authMiddleware, adminMiddleware, deleteDonarController);
+// DELETE DONAR/HOSPITAL/ORGANISATION || GET
+router.delete("/delete/:id", authMiddleware, adminMiddleware, deleteDonarController);
 
 //EXPORT
 module.exports = router;

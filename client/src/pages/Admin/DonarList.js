@@ -27,7 +27,7 @@ const DonarList = () => {
         try {
             let answer = window.prompt("Are You Sure Want To Delete This Donar?", "Sure");
             if (!answer) return;
-            const { data } = await API.delete(`/admin/delete-donar/${id}`);
+            const { data } = await API.delete(`/admin/delete/${id}`);
             alert(data?.message);
             window.location.reload();
         } catch (error) {

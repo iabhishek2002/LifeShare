@@ -77,7 +77,7 @@ const deleteDonarController = async (req, res) => {
         await userModel.findByIdAndDelete(req.params.id);
         return res.status(200).send({
             success: true,
-            message: "Deleted Donor successfully",
+            message: "Deleted Successfully",
         });
     } catch (error) {
         console.log(error);
